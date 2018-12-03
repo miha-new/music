@@ -48,6 +48,9 @@
         }
       }
     },
+    mounted: function () {
+      // console.log(this.$elem);
+    },
     methods: {
       handlerClose () {
         this.$emit('input', false);

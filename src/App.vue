@@ -2,22 +2,20 @@
   <div id="app">
     <main-header/>
     <router-view/>
-    <main-tracks/>
     <main-footer/>
     <main-player/>
   </div>
 </template>
 
 <script>
+
 import MainHeader from '@/components/MainHeader';
-import MainTracks from '@/components/MainTracks';
 import MainFooter from '@/components/MainFooter';
 import MainPlayer from '@/components/MainPlayer';
 
 export default {
   components: {
     MainHeader,
-    MainTracks,
     MainFooter,
     MainPlayer,
   },
@@ -35,11 +33,6 @@ export default {
 
 html {
   min-width: 320px;
-  overflow-y: visible;
-  overflow-x: hidden;
-  @media (min-width: 768px){
-    margin-right: calc(-1 * (100vw - 100%));
-  }
 }
 
 body {
@@ -72,6 +65,19 @@ img {
 .test {
   position: relative;
   z-index: 999;
+}
+
+.container {
+  max-width: 1600px;
+  width: 100%;
+  padding-right: 24px;
+  padding-left: 24px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+input::-ms-clear {
+  display: none;
 }
 
 </style>

@@ -1,0 +1,309 @@
+.list-tracks {
+  margin-top: 24px;
+  margin-bottom: 24px;
+  padding-right: 24px;
+  padding-left: 24px;
+  &__title {
+    font-size: 32px;
+    line-height: 40px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #333;
+    margin-bottom: 24px;
+  }
+  &__items {
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -24px;
+    margin-left: -24px;
+  }
+  &__item {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 24px;
+    padding-left: 24px;
+    margin-bottom: 24px;
+  }
+  &__item-wrap {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  &__item-cover {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    flex: 0 0 40px;
+    max-width: 40px;
+    height: 40px;
+    background: #F5F5F5 url(/img/bg-cover.svg) no-repeat 50%;
+    margin-bottom: 8px;
+    cursor: pointer;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background-color: #1A1C1D;
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: url(/img/play-track.svg) no-repeat 50%;
+      opacity: 0;
+      transition: opacity 200ms ease;
+    }
+    &:hover {
+      &::before {
+        opacity: .8;
+      }
+      &::after {
+        opacity: 1;
+      }
+    }
+    &_active {
+      &::before {
+        opacity: .8;
+      }
+      &::after {
+        opacity: 1;
+        background: url(/img/pause-track.svg) no-repeat 50%;
+      }
+    }
+  }
+  &__item-cover-img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+  &__item-layout {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    flex: 0 0 calc(100% - 40px);
+    max-width: calc(100% - 40px);
+    padding-left: 16px;
+    padding-right: 40px;
+    margin-bottom: 8px;
+  }
+  &__item-name {
+    height: 20px;
+    font-weight: 700;
+    line-height: 20px;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    text-transform: uppercase;
+  }
+  &__item-name-link {
+    color: #333;
+    text-decoration: none;
+    transition: color 200ms ease;
+    &:hover {
+      color: #20A2FF;
+    }
+  }
+  &__item-author {
+    height: 20px;
+    line-height: 20px;
+    font-size: 14px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+  &__item-author-link {
+    color: #999;
+    text-decoration: none;
+    transition: color 200ms ease;
+    &:hover {
+      color: #20A2FF;
+    }
+  }
+  &__item-download {
+    position: absolute;
+    top: 8px;
+    right: 0;
+    width: 23px;
+    height: 23px;
+    background: #F5F5F5 url(/img/arrow-down.svg) no-repeat 50%;
+    border: 2px solid #333;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 200ms ease, border-color 200ms ease;
+    &:hover {
+      background-color: #FFD370;
+      border-color: #FFD370;
+    }
+  }
+  &__item-timeline {
+    display: none;
+    background: repeating-linear-gradient(90deg, #c4c4c4, #c4c4c4 2px, #fff 2px, #fff 4px);
+    height: 32px;
+    margin-top: 8px;
+  }
+  &__item-time {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    font-size: 12px;
+    line-height: 12px;
+    color: #999;
+  }
+  &__item-tags {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    line-height: 1;
+  }
+  &__item-tag {
+    display: inline-block;
+    padding: 3px 6px;
+    margin-right: 6px;
+    height: 20px;
+    font-size: 10px;
+    line-height: 10px;
+    color: #999;
+    border: 1px solid #ebebeb;
+    border-radius: 20px;
+    vertical-align: middle;
+    cursor: pointer;
+    transition: border-color 200ms ease, color 200ms ease;
+    &:last-child {
+      margin-right: 0;
+    }
+    &:hover {
+      border-color: #c4c4c4;
+      color: #333;
+    }
+  }
+  &__item-tag_special {
+    background-color: #FFE5A9;
+  }
+  &__item-tag_more {
+    position: relative;
+    width: 37px;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: url(/img/tags-more.svg) no-repeat 50%;
+      opacity: .4;
+      transition: opacity 200ms;
+    }
+    &:hover {
+      &::before { opacity: 1; }
+    }
+  }
+  &__btn-more {
+    text-align: center;
+    display: block;
+    width: 100%;
+    height: 68px;
+    padding: 20px 30px;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 26px;
+    color: #333;
+    border: 1px solid #e2e2e2;
+    background-color: #fff;
+    margin-top: 24px;
+    margin-bottom: 24px;
+    user-select: none;
+    cursor: pointer;
+    transition: background-color 200ms;
+    &:hover {
+      background-color: #f5f5f5;
+    }
+  }
+}
+
+@media (min-width: 576px) {
+  .list-tracks {
+    &__item {
+      flex: 0 0 (100% / 2);
+      max-width: (100% / 2);
+    }
+  }
+}
+
+@media (min-width: 992px) {
+  .list-tracks {
+    &__item {
+      flex: 0 0 (100% / 3);
+      max-width: (100% / 3);
+    }
+  }
+}
+
+@media (min-width: 1200px) {
+  .list-tracks {
+    margin-top: 48px;
+    margin-bottom: 48px;
+    padding-right: 48px;
+    padding-left: 48px;
+    &__title {
+      font-size: 40px;
+      line-height: 50px;
+      margin-bottom: 48px;
+    }
+    &__items {
+      margin-right: -48px;
+      margin-left: -48px;
+      margin-bottom: 32px;
+    }
+    &__item {
+      padding-right: 48px;
+      padding-left: 48px;
+      margin-bottom: 32px;
+      flex: 0 0 (100% / 2);
+      max-width: (100% / 2);
+    }
+    &__item-cover {
+      flex: 0 0 80px;
+      max-width: 80px;
+      height: 80px;
+    }
+    &__item-layout {
+      flex: 0 0 calc(100% - 80px);
+      max-width: calc(100% - 80px);
+    }
+    &__item-timeline,
+    &__item-time {
+      display: block;
+    }
+    &__item-tag {
+      padding: 6px 10px;
+      font-size: 12px;
+      line-height: 12px;
+      height: 27px;
+    }
+    &__btn-more {
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+  }
+}
+
+
+@media (min-width: 1346px) {
+  .list-tracks {
+    &__item {
+      flex: 0 0 (100% / 3);
+      max-width: (100% / 3);
+    }
+  }  
+}
+
