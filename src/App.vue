@@ -1,23 +1,23 @@
-<template>
-  <div id="app">
-    <main-header/>
-    <router-view/>
-    <main-footer/>
-    <main-player/>
-  </div>
+<template lang="pug">
+  #app
+    main-header
+    router-view
+    main-footer
+    audio-player
+
 </template>
 
 <script>
 
 import MainHeader from '@/components/MainHeader';
 import MainFooter from '@/components/MainFooter';
-import MainPlayer from '@/components/MainPlayer';
+import AudioPlayer from '@/components/AudioPlayer';
 
 export default {
   components: {
     MainHeader,
     MainFooter,
-    MainPlayer,
+    AudioPlayer,
   },
 }
 </script>
@@ -59,21 +59,12 @@ img {
 
 #app {
   position: relative;
-  padding-bottom: 80px;
+  padding-bottom: 57px;
 }
 
 .test {
   position: relative;
   z-index: 999;
-}
-
-.container {
-  max-width: 1600px;
-  width: 100%;
-  padding-right: 24px;
-  padding-left: 24px;
-  margin-right: auto;
-  margin-left: auto;
 }
 
 input::-ms-clear {

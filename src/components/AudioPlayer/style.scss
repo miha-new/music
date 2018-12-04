@@ -1,0 +1,235 @@
+.audio-player {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  z-index: 200;
+  height: 57px;
+  background-color: #232323;
+  border-top: 1px solid rgba(255, 255, 255, .5);
+  &__container {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1600px;
+    width: 100%;
+    padding-left: 24px;
+    padding-right: 24px;
+    margin-right: auto;
+    margin-left: auto;
+  }
+
+  &__cover {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    flex: 0 0 40px;
+    max-width: 40px;
+    height: 40px;
+    background: #F5F5F5 url(/img/bg-cover.svg) no-repeat 50%;
+    user-select: none;
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+  }
+
+  &__control {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    flex-grow: 1;
+    flex-basis: 0px;
+    max-width: 100%;
+    padding: 0 8px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    line-height: 1;
+  }
+  &__control-play {
+    width: 40px;
+    height: 40px;
+    background: url(/img/play-ctrl.svg) no-repeat 50%;
+    border: none;
+    cursor: pointer;
+  }
+  &__control-prev {
+    width: 40px;
+    height: 40px;
+    background: url(/img/prev-ctrl.svg) no-repeat 50%;
+    border: none;
+    cursor: pointer;
+  }
+  &__control-next {
+    width: 40px;
+    height: 40px;
+    background: url(/img/next-ctrl.svg) no-repeat 50%;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__layout {
+    display: none;
+  }
+
+  &__download {
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    flex: 0 0 40px;
+    max-width: 40px;
+    height: 40px;
+    text-align: right;
+  }
+  &__download-btn {
+    display: inline-block;
+    width: 40px;
+    vertical-align: middle;
+    border: none;
+    background-color: #fff;
+    background: #fff url(/img/arrow-down.svg) no-repeat 16px 50%;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 8px 0 8px 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    user-select: none;
+    transition: background-color 200ms ease;
+    overflow: hidden;
+    &:hover {
+      background-color: #FFD370;
+    }
+  }
+  &__error {
+    position: absolute;
+    bottom: 100%;
+    left: 0;
+    right: 0;
+    color: #fff;
+    background-color: #FF5C38;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  &__error-text {
+    position: relative;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    line-height: 24px;
+    padding: 0 32px;
+  }
+  &__error-refresh {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -12px;
+    width: 24px;
+    height: 24px;
+    background: url(/img/refresh.svg) no-repeat 50% 50%;
+    border: none;
+    user-select: none;
+    cursor: pointer;
+  }
+}
+
+@media (min-width: 1200px) {
+  .audio-player {
+    height: 79px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    &__container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    &__cover {
+      flex: 0 0 54px;
+      max-width: 54px;
+      height: 54px;
+    }
+    &__layout {
+      position: relative;
+      display: block;
+      width: 100%;
+      min-height: 1px;
+      flex-grow: 1;
+      flex-basis: 0px;
+      height: 54px;
+      line-height: 20px;
+      font-size: 14px;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      overflow: hidden;
+      padding-right: 40px;
+      user-select: none;
+    }
+    &__control {
+      flex: 0 0 180px;
+      max-width: 180px;
+      height: 54px;
+    }
+    &__control-prev,
+    &__control-play,
+    &__control-next {
+      margin: 7px 0;
+    }
+    &__layout-name {
+      display: inline-block;
+      height: 20px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: #fff;
+      text-decoration: none;
+      transition: color 200ms ease;
+      &:hover {
+        color: #4c64de;
+      }
+    }
+    &__layout-author {
+      display: inline-block;
+      height: 20px;
+      color: #919191;
+      text-decoration: none;
+      transition: color 200ms ease;
+      margin-left: 8px;
+      &:hover {
+        color: #4c64de;
+      }
+    }
+    &__layout-timeline {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 32px;
+      background: repeating-linear-gradient(90deg, #FFD370, #FFD370 2px, #232323 2px, #232323 4px);
+    }
+    &__layout-time {
+      position: absolute;
+      top: 0;
+      right: 0;
+      font-size: 12px;
+      line-height: 14px;
+      height: 20px;
+      color: #919191;
+      background-color: #232323;
+    }
+    &__download {
+      padding-top: 7px;
+      padding-bottom: 7px;
+      flex: 0 0 150px;
+      max-width: 150px;
+    }
+    &__download-btn {
+      width: 120px;
+      padding: 8px 16px 8px 32px;
+    }
+    &__error {
+      padding-top: 12px;
+      padding-bottom: 12px;
+    }
+  }
+}

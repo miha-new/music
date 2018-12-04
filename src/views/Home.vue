@@ -95,11 +95,11 @@
         filter: blur(10px);
       }
       &::before {
-        background-image: url(/img/bg-jumbotron-blur.png);
+        background-image: url(/img/bg-jumbotron-blur.png?v=1);
         opacity: 1;
       }
       &::after {
-        background-image: url(/img/bg-jumbotron.png);
+        background-image: url(/img/bg-jumbotron.png?v=1);
         opacity: 0;
       }
     }
